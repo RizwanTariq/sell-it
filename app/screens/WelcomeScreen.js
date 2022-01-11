@@ -1,18 +1,27 @@
-import { Image, ImageBackground, StyleSheet, Text, View } from "react-native";
+import { Image, ImageBackground, StyleSheet, View } from "react-native";
+import AppButton from "../components/AppButton";
+import AppText from "../components/AppText";
+import colors from "../config/colors";
 function WelcomeScreen() {
   return (
     <ImageBackground
+      blurRadius={5}
       source={require("../assets/background.jpg")}
       style={styles.background}
     >
+      {/* Logo Container */}
       <View style={styles.logoContent}>
+        {/* Logo */}
         <Image style={styles.logo} source={require("../assets/logo_1.png")} />
-        <Text style={{ color: "#03071e", fontWeight: "bold" }}>
-          Sell What You Don't Need
-        </Text>
+        {/* //Text Under Logo */}
+        <AppText style={styles.tagline}>Sell What You Don't Need</AppText>
       </View>
-      <View style={styles.loginButton}></View>
-      <View style={styles.registerButton}></View>
+
+      {/* Buttons */}
+      <View style={styles.buttonContainer}>
+        <AppButton title="Login" bgColor={colors.primary} />
+        <AppButton title="Register" bgColor={colors.danger} />
+      </View>
     </ImageBackground>
   );
 }
@@ -23,26 +32,21 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: "flex-end",
   },
+  tagline: {
+    color: colors.dark,
+    fontSize: 25,
+    fontWeight: "bold",
+    paddingVertical: 20,
+  },
   logoContent: {
-    position: "absolute",
-    top: "5%",
-    left: "32%",
     flex: 1,
+    top: "10%",
     alignItems: "center",
   },
   logo: {
     width: 100,
     height: 100,
   },
-  loginButton: {
-    height: 40,
-    width: "100%",
-    backgroundColor: "#FFD166",
-  },
-  registerButton: {
-    height: 40,
-    width: "100%",
-    backgroundColor: "#ef476f",
-  },
+  buttonContainer: { paddingHorizontal: 2 },
 });
 export default WelcomeScreen;
