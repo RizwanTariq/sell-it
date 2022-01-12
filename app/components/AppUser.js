@@ -1,22 +1,24 @@
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, TouchableHighlight, View } from "react-native";
 import colors from "../config/colors";
 import AppText from "./AppText";
 
-function AppUser({ image, title, subTitle }) {
+function AppUser({ image, title, subTitle, onPress }) {
   console.log(image, title, subTitle);
   return (
-    <View style={styles.container}>
-      <Image style={styles.image} source={image} resizeMode="cover" />
-      <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        <AppText style={styles.subTitle}>{subTitle}</AppText>
+    <TouchableHighlight underlayColor={colors.whiteSmoke} onPress={onPress}>
+      <View style={styles.container}>
+        <Image style={styles.image} source={image} resizeMode="cover" />
+        <View style={styles.detailsContainer}>
+          <AppText style={styles.title}>{title}</AppText>
+          <AppText style={styles.subTitle}>{subTitle}</AppText>
+        </View>
       </View>
-    </View>
+    </TouchableHighlight>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flexDirection: "row" },
+  container: { padding: 10, flexDirection: "row" },
   image: {
     width: 60,
     height: 60,

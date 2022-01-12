@@ -4,7 +4,8 @@ const colors = {
   success: "#06D6A0",
   primary: "#118ab2",
   secondary: "#073b4c",
-  lightGray: "#A8A8A8",
+  lightGray: "#D8D8D8",
+  whiteSmoke: "#F5F5F5",
   dark: "#000",
   light: "#fff",
 };
